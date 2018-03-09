@@ -24,6 +24,7 @@ export default class Shelf extends React.Component {
               books.map((book, index) => (
                 <li key={index}>
                   <Book
+                    shelf={book.shelf}
                     onBookUpdate={(newShelf) => onBookUpdate(book, newShelf)}
                     author={book.authors.join(', ')}
                     image={book.imageLinks.smallThumbnail}

@@ -7,7 +7,8 @@ export default class Book extends React.Component {
     title: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
-    onBookUpdate: PropTypes.func.isRequired
+    onBookUpdate: PropTypes.func.isRequired,
+    shelf: PropTypes.string.isRequired
   };
 
   handleBookUpdate = (event) => {
@@ -15,7 +16,7 @@ export default class Book extends React.Component {
   };
 
   render() {
-    const {title, author, image, onBookUpdate} = this.props;
+    const {title, author, image, onBookUpdate, shelf} = this.props;
 
     return (
       <div>
@@ -23,7 +24,7 @@ export default class Book extends React.Component {
           <div className="book-top">
             <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url("${image}")` }}></div>
             <div className="book-shelf-changer">
-              <select onChange={this.handleBookUpdate}>
+              <select value={shelf || 'none'} onChange={this.handleBookUpdate}>
                 <option value="none" disabled>Move to...</option>
                 <option value="currentlyReading">Currently Reading</option>
                 <option value="wantToRead">Want to Read</option>

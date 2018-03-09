@@ -1,5 +1,11 @@
 import {shelfConstants} from './constants';
 
+export const shelfKey = {
+    [shelfConstants.CURRENTLY_READING]: 'Currently Reading',
+    [shelfConstants.WANT_TO_READ]: 'Want To Read',
+    [shelfConstants.READ]: 'Read'
+  };
+
 export const groupBy = (list, key) => {
   // create an object
   // run through the list
@@ -19,11 +25,5 @@ export const groupBy = (list, key) => {
 }
 
 export const getShelfTitle = (shelfCategory) => {
-  const shelfKey = {
-    [shelfConstants.CURRENTLY_READING]: 'Currently Reading',
-    [shelfConstants.WANT_TO_READ]: 'Want To Read',
-    [shelfConstants.READ]: 'Read'
-  };
-
   return shelfKey[shelfCategory];
 };
